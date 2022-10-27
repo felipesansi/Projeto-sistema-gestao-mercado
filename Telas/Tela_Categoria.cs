@@ -26,7 +26,7 @@ namespace SistemaVendas_Versao3.Telas
         {
             this.Close();
         }
-
+        Tela_mensagem tela_Mensagem = new Tela_mensagem();
         private void Btn_Cadastrar_categoria_Click(object sender, EventArgs e)
         {
 
@@ -37,8 +37,12 @@ namespace SistemaVendas_Versao3.Telas
             bool sucesso = categoriaDal.Inserir(dadosCategoria);
             if (sucesso)
             {
-                MessageBox.Show("Cadastro realizado de Categoria com sucesso", "Messagem de sucesso", MessageBoxButtons.OK,MessageBoxIcon.Information);
-              
+                tela_Mensagem.Lbl_tela_mensagem.Text = "Cadastro realizado de Categoria com sucesso";
+                tela_Mensagem.Lbl_titulo_mensagem.Text = "Messagem de sucesso";
+                tela_Mensagem.Show();
+
+                //MessageBox.Show("Cadastro realizado de Categoria com sucesso", "Messagem de sucesso", MessageBoxButtons.OK,MessageBoxIcon.Information);
+
                 dt = categoriaDal.select();
                 Dgv_categoria.DataSource = dt;
             }
